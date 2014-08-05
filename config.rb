@@ -1,6 +1,7 @@
 ###
 # Compass
 ###
+activate :livereload
 
 # Change Compass configuration
 # compass_config do |config|
