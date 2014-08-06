@@ -1,8 +1,8 @@
 .welcome
-  %h1 Middleman is Watching
+  %h1 Middleman is Watching  ??我好hihi
   %p.doc
     = link_to "Read Online Documentation", "http://middlemanapp.com/"
   / .doc
+  :javascript
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')  
 / .welcome
-    :javascript
-      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')  

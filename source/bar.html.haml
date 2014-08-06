@@ -1,0 +1,55 @@
+!!!
+%html
+  %head
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+    %script{:src => "http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"}
+    %script{:src => "http://builds.emberjs.com/tags/v1.5.1/ember.js"}
+    %script{:src => "http://d3js.org/d3.v3.min.js"}
+    %script{:src => "javascripts/d3_tip.js"}
+    %script{:src => "javascripts/jquery.numeric.js"}
+
+    / %link{:rel => :stylesheet, :type => :"text/css", :href=> "stylesheets/bar.css"}
+    %link{:rel => :stylesheet, :type => :"text/css", :href=> "stylesheets/d3_tip.css"}
+    %meta{:charset => "utf-8"}/
+    %title D3 Ember Bar Chart
+  %body
+    %script#application{:type => "text/x-handlebars"}
+      {{bar-chart width=560 height=350 data=content}}      
+      <p>
+      {{input type='text' value=mHours placeholder='Manual hours'}}
+      {{input type='text' value=aHours placeholder='Automating hours'}}
+      {{input type='text' value=coverage placeholder='coverage'}}      
+      {{input type='text' value=rounds placeholder='rounds / year'}}
+      %h1 Parameter
+      %table{:align => "center", :border => "2", :bordercolor => "#003300", :cellspacing => "1", :width => "600"}
+        %tbody
+          %tr
+            %th Manual
+            %th Automating
+            %th Coverage
+            %th Round
+          %tr
+            %td {{mHours}}
+            %td {{aHours}}
+            %td {{coverage}}
+            %td {{rounds}}
+      %h1 Result (Saving hours)
+      %table{:align => "center", :border => "2", :bordercolor => "#003300", :cellspacing => "1", :width => "600"}
+        %tbody
+          %tr
+            %th Per Round
+            %th Per Year
+            %th Per Round(coverage)
+            %th Per Year(coverage)
+          %tr
+            %td {{savingHoursPerRound}}
+            %td {{savingHoursPerYear}}
+            %td {{csavingHoursPerRound}}
+            %td {{csavingHoursPerYear}}
+
+
+    :javascript
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    
+    %script{:src => "javascripts/bar.js"}
+
